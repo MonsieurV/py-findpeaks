@@ -44,7 +44,6 @@ class OctaveFindpeaksTestCase(unittest.TestCase):
     def round(self, n):
         return np.around(n, self.NB_DECIMALS_TOLERANCE)
 
-
     def test_findpeaks_callable(self):
         """ Check we can call the Octave findpeaks from Python using oct2py. """
         # Load signal packageself.
@@ -53,7 +52,7 @@ class OctaveFindpeaksTestCase(unittest.TestCase):
         self.assertEquals(pks[0].tolist(), [11, 9])
         self.assertEquals(loc[0].tolist(), [8, 4])
 
-    def test_octave_findpeaks_equal_matlab_findpeaks_minpeakheight(self):
+    def test_octave_findpeaks_equal_matlab_findpeaks_minpeakheight_1(self):
         """ Check that Octave findpeaks mimics well the original MatLab findpeaks, with minpeakheight filter. """
         # Find peaks on this vector.
         vector = [
@@ -74,6 +73,50 @@ class OctaveFindpeaksTestCase(unittest.TestCase):
         self.assertEqual(
             loc[0],
             [8])
+
+    def test_octave_findpeaks_equal_matlab_findpeaks_minpeakheight_2(self):
+        """ Check that Octave findpeaks mimics well the original MatLab findpeaks, with minpeakheight filter. """
+        # Find peaks on this vector.
+        vector = [
+            0.000000000000001, 3.651411362475055, 4.347239816515587,
+            3.229238311887470, 2.057044119108341, 4.289416174922050,
+            4.623656294357088, 16.991500296151141, 23.710596923344340,
+            5.194447742667983, 5.392090702263596
+        ]
+        (pks, loc) = octave.findpeaks(
+            np.array(vector),
+            'MinPeakHeight', 22, 'MinPeakDistance', 0, 'MinPeakWidth', 0)
+        if np.isscalar(pks):
+            pks = np.array(pks, ndmin=1)
+            loc = np.array(loc, ndmin=1)
+        self.assertEqual(
+            self.round(pks).tolist(),
+            self.round([23.710596923344340]).tolist())
+        self.assertEqual(
+            loc[0],
+            [9])
+
+    def test_octave_findpeaks_equal_matlab_findpeaks_minpeakheight_3(self):
+        """ Check that Octave findpeaks mimics well the original MatLab findpeaks, with minpeakheight filter. """
+        # Find peaks on this vector.
+        vector = [
+            0.000000000000002, 4.304968393969253, 2.524429995956715,
+            1.362350996472030, 8.651011827706597, 5.355103964053995,
+            4.166135802128525, 7.111434648523146, 41.368426443580518,
+            13.753049599045664, 11.652130301046128
+        ]
+        (pks, loc) = octave.findpeaks(
+            np.array(vector),
+            'MinPeakHeight', 22, 'MinPeakDistance', 0, 'MinPeakWidth', 0)
+        if np.isscalar(pks):
+            pks = np.array(pks, ndmin=1)
+            loc = np.array(loc, ndmin=1)
+        self.assertEqual(
+            self.round(pks).tolist(),
+            self.round([41.368426443580518]).tolist())
+        self.assertEqual(
+            loc[0],
+            [9])
 
     def test_octave_findpeaks_equal_matlab_findpeaks_minpeakheight_minpeakdistance(self):
         """ Check that Octave findpeaks mimics well the original MatLab findpeaks, with minpeakheight and minpeakdistance filter. """
