@@ -25,4 +25,4 @@ dependencies:
 
 ####### Run the tests ########
 test:
-	${PY_RUNNER} nosetests tests -v
+	${PY_RUNNER} py.test tests/ -v
