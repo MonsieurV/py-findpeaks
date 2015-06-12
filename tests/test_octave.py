@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 # Copyright (c) 2015 Yoan Tournade <yoan@ytotech.com>
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 3 of the License, or
@@ -18,11 +20,14 @@ from oct2py import octave
 import numpy as np
 
 class OctaveFindpeaksTestCase(unittest.TestCase):
-    """ Check that the host Octave findpeaks works
-    as expected, calling it from Python using oct2py.
+    """ Check that the Octave findpeaks gives
+    same results than the MatLab one.
+
+    For theses tests, the host Octave findpeaks is called
+    from Python using oct2py.
 
     To run these tests, you must have installed:
-    - Numpy and Scipy ;
+    - Numpy ;
     - Have Octave installed with the Octave-Forge signal package.
     For examples, using `pkg` (requires Octave 4.0.0 or newer installation):
     ```
@@ -34,11 +39,11 @@ class OctaveFindpeaksTestCase(unittest.TestCase):
     - oct2py to execute Octave code from Python.
 
     You can install all these in a virtualenv using pip.
-    See Makefile install target. Note pip will compile
-    Numpy and Scipy, which can take a lot of time compared
-    to an installation from your distribution package manager.
 
-    Note: the Makefile also uses the nose test runner."""
+    See Makefile 'install' target. Note pip will compile
+    Numpy and Scipy, which can take a lot of time compared
+    to an installation from your distribution package manager."""
+
     NB_DECIMALS_TOLERANCE = 10
 
     def round(self, n):
