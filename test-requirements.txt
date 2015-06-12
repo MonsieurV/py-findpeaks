@@ -2,3 +2,4 @@ pytest==2.7.1
 numpy==1.9.2
 oct2py==3.1.0
 scipy==0.15.1
+PeakUtils==1.0.0

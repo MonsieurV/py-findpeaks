@@ -1,9 +1,17 @@
-# MatLab/Octave findpeaks in Python/Scipy
+# findpeaks alternatives in the Python world
 
-Python implementation of the Octave-Forge [findpeaks](http://octave.sourceforge.net/signal/function/findpeaks.html) ([source](http://sourceforge.net/p/octave/signal/ci/eacfdb0962e8321ac29b677afc06683b616e83da/tree/inst/findpeaks.m)), so we have a findpeaks similar to the MatLab one to use with Numpy/Scipy (it is not easy to have the exact same results than the MatLab/Octave findpeaks with the Scipy [find_peaks_cwt()](http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks_cwt.html)).
+Overview of all the alternatives I've found to do peak detection (local maxima) in Python.
 
-This implementation is in alpha version and have *not* been extensively been test against the original Octave-Forge version.
+The main alternatives are:
+* Use [find_peaks_cwt](http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks_cwt.html)) from the Scipy signal processing module
+* Use the [detect_peaks function](http://nbviewer.ipython.org/github/demotu/BMC/blob/master/notebooks/DetectPeaks.ipynb) from Marcos Duarte.
+* Use the [indexes function](http://pythonhosted.org/PeakUtils/reference.html#peakutils.peak.indexes) from [the PeakUtils package](https://bitbucket.org/lucashnegri/peakutils)
+* Use the Octave [findpeaks](http://octave.sourceforge.net/signal/function/findpeaks.html) (from the Octave-Forge signal package) through [the oct2py module](https://github.com/blink1073/oct2py)
 
-If you are interested to use it or encounter any issue, please [let me know](mailto:yoan@ytotech.com) or [report it](https://github.com/MonsieurV/py-findpeaks/issues/new).
+From theses options, the ones from Marcos Duarte and the PeakUtils are the easier and simpler to use if you come from the MatLab world and/or search a direct equivalent of [the MatLab findpeaks function](http://fr.mathworks.com/help/signal/ref/findpeaks.html).
 
-Happy processing!
+For the usage of theses functions, please checkout [the tests](https://github.com/MonsieurV/py-findpeaks/tree/master/tests).
+
+If you've have found something else or want to improve this overview, [let me know](mailto:yoan@ytotech.com) or [open a new ticket](https://github.com/MonsieurV/py-findpeaks/issues/new). I will happily receive any contribution.
+
+Hoping this help someone, happy processing!
