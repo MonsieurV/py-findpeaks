@@ -6,7 +6,7 @@ When you're selecting searching local maxima in signals, you might consider:
 * the function interface, notably if you search something similar to other platform functions, like the MatLab `findpeaks` ;
 * the ease of integration in your program: does it require extra dependency? Does is it easy to make it run on a fresh box?
 
-| Algorithm | Depends on | Local minima? | MatLab `findpeaks`-like? | Easy to run ? |
+| Algorithm | Depends on | Local minima? | MatLab `findpeaks`-like? |
 |-----------| ----------------- | ------------- | ------------------------ |
 | [scipy.signal.find_peaks_cwt](http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks_cwt.html) | Scipy | ? | ✘ |
 | [detect_peaks from Marcos Duarte](http://nbviewer.ipython.org/github/demotu/BMC/blob/master/notebooks/DetectPeaks.ipynb) | Numpy | ✘ | ✔ |
