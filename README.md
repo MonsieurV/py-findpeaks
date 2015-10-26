@@ -4,7 +4,7 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 
 ## Overview
 
-| Algorithm | Depends on | Local minima? | MatLab `findpeaks`-like? | Easy to run ? |
+| Algorithm | Depends on | Local minima? | MatLab `findpeaks`-like? |
 |-----------| ----------------- | ------------- | ------------------------ |
 | [scipy.signal.find_peaks_cwt](http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks_cwt.html) | Scipy | ? | ✘ |
 | [detect_peaks from Marcos Duarte](http://nbviewer.ipython.org/github/demotu/BMC/blob/master/notebooks/DetectPeaks.ipynb) | Numpy | ✘ | ✔ |
