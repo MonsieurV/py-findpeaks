@@ -4,11 +4,11 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 
 | Algorithm | Depends on | Filters | Local minima? | MatLab `findpeaks`-like? |
 |-----------| ---------- | ------- | ------------- | ------------------------ |
-| [scipy.signal.find_peaks_cwt](#scipy.signal.find_peaks_cwt) | Scipy | Max distance | ✘ | ✘ |
-| [detect_peaks]() | Numpy | Minimum distance<br>Minimum heigth | ✘ | ✔ |
-| [peakutils.indexes]() | PeakUtils and Scipy | ? | ? | ✘ |
-| [peakdetect]() | Scipy | ? | ? | ✘ |
-| [Octave-Forge findpeaks]() | Octave-Forge, oct2py and Scipy | ? | ? | ✘ |
+| [scipy.signal.find_peaks_cwt](#scipysignalfind_peaks_cwt) | Scipy | Max distance | ✘ | ✘ |
+| [detect_peaks](#detect_peaks-from-marcos-duarte) | Numpy | Minimum distance<br>Minimum heigth | ✘ | ✔ |
+| [peakutils.indexes](#peakutilsindexes) | PeakUtils and Scipy | ? | ? | ✘ |
+| [peakdetect](#peakdetect-from-sixtenbe) | Scipy | ? | ? | ✘ |
+| [Octave-Forge findpeaks](#octave-forge-findpeaks) | Octave-Forge, oct2py and Scipy | ? | ? | ✘ |
 
 ## How to make your choice?
 
