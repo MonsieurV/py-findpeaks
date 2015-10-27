@@ -6,4 +6,5 @@ import scipy.signal
 
 indices = scipy.signal.find_peaks_cwt(vector, np.arange(1, 2))
 print('Peaks are: %s' % (indices))
-plot_peaks(np.array(vector), np.array(indices))
+plot_peaks(np.array(vector), np.array(indices),
+    algorithm='scipy.signal.find_peaks_cwt')

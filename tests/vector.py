@@ -1,10 +1,10 @@
 import numpy as np
 
 vector = [
-    0, 6, 25, 20, 15, 8, 15, 6, 0, -5, -15, -3, 4, 10, 8, 13, 8, 10, 3, 1, 20,
-    7, 3, 0 ]
+    0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8, 13, 8, 10, 3,
+    1, 20, 7, 3, 0 ]
 
-def plot_peaks(x, indices, mph=None, mpd=None):
+def plot_peaks(x, indices, algorithm=None, mph=None, mpd=None):
     """Plot results of the peak dectection."""
     try:
         import matplotlib.pyplot as plt
@@ -25,7 +25,5 @@ def plot_peaks(x, indices, mph=None, mpd=None):
     ax.set_ylim(ymin - 0.1*yrange, ymax + 0.1*yrange)
     ax.set_xlabel('Data #', fontsize=14)
     ax.set_ylabel('Amplitude', fontsize=14)
-    ax.set_title('Peak detection (mph=%s, mpd=%s)'
-                 % (mph, mpd))
-    # plt.grid()
+    ax.set_title('%s (mph=%s, mpd=%s)' % (algorithm, mph, mpd))
     plt.show()
