@@ -5,15 +5,12 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 ## Overview
 
 | Algorithm | Depends on | Filters | Local minima? | MatLab `findpeaks`-like? |
-|-----------| ----------------- | ------------- | ------------------------ |
+|-----------| ---------- | ------- | ------------- | ------------------------ |
 | [scipy.signal.find_peaks_cwt](#scipy.signal.find_peaks_cwt) | Scipy | Max distance | ✘ | ✘ |
 | [detect_peaks]() | Numpy | Minimum distance<br>Minimum heigth | ✘ | ✔ |
 | [peakutils.indexes]() | PeakUtils and Scipy | ? | ? | ✘ |
 | [peakdetect]() | Scipy | ? | ? | ✘ |
 | [Octave-Forge findpeaks]() | Octave-Forge, oct2py and Scipy | ? | ? | ✘ |
-
-Note:
-* From theses options, the ones from Marcos Duarte and the PeakUtils are the easier and simpler to use if you come from the MatLab world and/or search a direct equivalent of [the MatLab findpeaks function](http://fr.mathworks.com/help/signal/ref/findpeaks.html).
 
 ## How to make your choice?
 
@@ -30,6 +27,10 @@ You may want the function to work natively with Numpy arrays or may search somet
 ### Ease of integration
 
 Does it require extra dependency? Does is it easy to make it run on a fresh box?
+
+--------------------------------
+
+# Presentation
 
 ## scipy.signal.find_peaks_cwt
 
