@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import scipy.signal
 import numpy as np
-from vector import vector
+from vector import vector, plot_peaks
+import scipy.signal
 
-print(scipy.signal.find_peaks_cwt(vector, np.arange(1, 10)))
+indices = scipy.signal.find_peaks_cwt(vector, np.arange(1, 2))
+print('Peaks are: %s' % (indices))
+plot_peaks(np.array(vector), np.array(indices))
