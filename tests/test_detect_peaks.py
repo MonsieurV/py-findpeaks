@@ -25,12 +25,8 @@ class PythonPeakUtilsFindpeaksTestCase(unittest.TestCase):
     def test_octave_findpeaks_equal_matlab_findpeaks_minpeakheight_1(self):
         """ Check that Octave findpeaks mimics well the original MatLab findpeaks, with minpeakheight filter. """
         # Find peaks on this vector.
-        vector = [
-            0.000000000000002, 8.065338269152255, 0.345981261752651,
-            3.773585143328164, 8.902504869392125, 10.153129735333088,
-            9.310914486231075, 52.420530313341835, 21.453422488606648,
-            11.328972030373752, 1.811055956166194
-        ]
+        vector = [ 0, 6, 25, 20, 15, 8, 15, 6, 0, -5, -15, -3, 4, 10, 8, 13, 8,
+            10, 3, 1, 20, 7, 3, 0 ]
         # 'MinPeakHeight', 22
         loc = detect_peaks(vector, mph=22)
         print(loc)

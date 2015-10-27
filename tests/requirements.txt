@@ -1,3 +1,2 @@
-pytest==2.7.1
 oct2py==3.1.0
 PeakUtils==1.0.0
