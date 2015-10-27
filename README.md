@@ -1,6 +1,4 @@
-# Peak detection algorithms in Python
-
-This is an overview of all the ready-to-use algorithms I've found to perform peak detection using Python.
+This is an overview of all the ready-to-use algorithms I've found to perform peak detection in Python.
 
 ## Overview
 
@@ -74,7 +72,7 @@ Requires a complicated and not very efficient setup to be called from Python cod
 
 ----------------------------------
 
-## Contribute
+# Contribute
 
 If you've have found something else or want to improve this overview, feel free to [open a new ticket](https://github.com/MonsieurV/py-findpeaks/issues/new) or submit a PR.
 
