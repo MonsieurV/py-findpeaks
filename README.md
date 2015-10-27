@@ -12,7 +12,7 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 
 ## How to make your choice?
 
-When you're selecting searching local maxima in signals, you might consider:
+When you're selecting an algorithm, you might consider:
 
 * The function interface
 
