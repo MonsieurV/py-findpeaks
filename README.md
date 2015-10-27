@@ -14,17 +14,9 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 
 When you're selecting an algorithm, you might consider:
 
-* The function interface
-
-You may want the function to work natively with Numpy arrays or may search something similar to other platform algorithms, like the MatLab [`findpeaks`](http://fr.mathworks.com/help/signal/ref/findpeaks.html).
-
-* The dependencies
-
-Does it require extra dependency? Does is it easy to make it run on a fresh box?
-
-* The filtering support
-
-Does the algorithm allows to define multiple filters? Which ones do you need?
+* **The function interface.** You may want the function to work natively with Numpy arrays or may search something similar to other platform algorithms, like the MatLab [`findpeaks`](http://fr.mathworks.com/help/signal/ref/findpeaks.html).
+* **The dependencies.** Does it require extra dependency? Does is it easy to make it run on a fresh box?
+* **The filtering support**. Does the algorithm allows to define multiple filters? Which ones do you need?
 
 --------------------------------
 
