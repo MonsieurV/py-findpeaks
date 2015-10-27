@@ -28,8 +28,6 @@ Does it require extra dependency? Does is it easy to make it run on a fresh box?
 
 --------------------------------
 
-# Presentation
-
 ## scipy.signal.find_peaks_cwt
 
 [Documentation](http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks_cwt.html).
