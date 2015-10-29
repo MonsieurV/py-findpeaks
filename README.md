@@ -86,4 +86,6 @@ Requires a rather complicated and not very efficient setup to be called from Pyt
 
 If you've have found something else or want to improve this overview, feel free to [open a new ticket](https://github.com/MonsieurV/py-findpeaks/issues/new) or submit a PR.
 
-Hoping this helps someone, happy digital processing!
+This has helped you? [Let me know!](mailto:yoan@ytotech.com)
+
+Happy digital processing!
