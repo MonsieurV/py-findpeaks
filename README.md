@@ -50,8 +50,8 @@ Thus this function requires to understand wavelets to be well used, which is les
 import numpy as np
 from vector import vector, plot_peaks
 from libs import detect_peaks
-print('Detect peaks without any filters.')
-indexes = detect_peaks.detect_peaks(vector)
+print('Detect peaks with minimum height and distance filters.')
+indexes = detect_peaks.detect_peaks(vector, mph=7, mpd=2)
 print('Peaks are: %s' % (indexes))
 ```
 
@@ -71,8 +71,9 @@ The function has an interface very similar and consistent results with the MatLa
 import numpy as np
 from vector import vector, plot_peaks
 import peakutils.peak
-print('Detect peaks without any filters.')
-indexes = peakutils.peak.indexes(np.array(vector), thres=0, min_dist=0)
+print('Detect peaks with minimum height and distance filters.')
+indexes = peakutils.peak.indexes(np.array(vector),
+    thres=7.0/max(vector), min_dist=2)
 print('Peaks are: %s' % (indexes))
 ```
 
@@ -90,8 +91,8 @@ This algorithm can be used as an equivalent of the MatLab `findpeaks` and will g
 import numpy as np
 from vector import vector, plot_peaks
 from libs import peakdetect
-print('Detect peaks without any filters.')
-peaks = peakdetect.peakdetect(np.array(vector), lookahead=2)
+print('Detect peaks with distance filters.')
+peaks = peakdetect.peakdetect(np.array(vector), lookahead=2, delta=2)
 # peakdetect returns two lists, respectively positive and negative peaks,
 # with for each peak a tuple of (indexes, values).
 indexes = []
@@ -118,9 +119,9 @@ from vector import vector, plot_peaks
 from oct2py import octave
 # Load the Octage-Forge signal package.
 octave.eval("pkg load signal")
-print('Detect peaks without any filters.')
-(_, indexes) = octave.findpeaks(np.array(vector), 'DoubleSided',
-    'MinPeakHeight', 0, 'MinPeakDistance', 0, 'MinPeakWidth', 0)
+print('Detect peaks with minimum height and distance filters.')
+(pks, indexes) = octave.findpeaks(np.array(vector), 'DoubleSided',
+    'MinPeakHeight', 6, 'MinPeakDistance', 2, 'MinPeakWidth', 0)
 # The results are in a 2D array and in floats: get back to 1D array and convert
 # peak indexes to integer. Also this is MatLab-style indexation (one-based),
 # so we must substract one to get back to Python indexation (zero-based).
