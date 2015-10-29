@@ -30,6 +30,8 @@ However this algorithm requires to understand wavelets to be well used, as its i
 
 ## detect_peaks from Marcos Duarte
 
+![](/images/detect_peaks.png?raw=true "detect_peaks from Marcos Duarte")
+
 [Documentation](http://nbviewer.ipython.org/github/demotu/BMC/blob/master/notebooks/DetectPeaks.ipynb).
 
 This algorithm comes from a notebook written by Marcos Duarte.
