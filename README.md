@@ -71,11 +71,28 @@ This algorithm can be used as an equivalent of the MatLab `findpeaks` and will g
 
 ## peakdetect from sixtenbe
 
+![](/images/sixtenbe_peakdetect.png?raw=true "peakdetect from sixtenbe")
+
+```python
+import numpy as np
+from vector import vector, plot_peaks
+from libs import peakdetect
+print('Detect peaks without any filters.')
+peaks = peakdetect.peakdetect(np.array(vector), lookahead=2)
+# peakdetect returns two lists, respectively positive and negative peaks,
+# with for each peak a tuple of (indexes, values).
+indexes = []
+for posOrNegPeaks in peaks:
+    for peak in posOrNegPeaks:
+        indexes.append(peak[0])
+print('Peaks are: %s' % (indexes))
+```
+
 [Source and documentation](https://gist.github.com/sixtenbe/1178136).
 
 The algorithm was written by sixtenbe based on the previous work of [endolith](https://gist.github.com/endolith/250860) and [Eli Billauer](http://billauer.co.il/peakdet.html).
 
-Easy to make it work, but may miss filtering capacities.
+Easy to setup as it comes in a single source Octave-Forge findpeaksOctave-Forge findpeaksOctave-Forge findpeaksOctave-Forge findpeaksOctave-Forge findpeaksOctave-Forge findpeaksOctave-Forge findpeaksOctave-Forge findpeaksfile, but the lookahead parameter make it hard to use on low-sampled signals or short samples. May miss filtering capacities (only minimum peak distance with the delta parameter).
 
 ## Octave-Forge findpeaks
 
