@@ -2,7 +2,7 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 
 ## Overview
 
-| Algorithm | Depends on | Filters | Local minima? | MatLab `findpeaks`-like? |
+| Algorithm | Depends on | Filters | Double sided? | MatLab `findpeaks`-like? |
 |-----------| ---------- | ------- | ------------- | ------------------------ |
 | [scipy.signal.find_peaks_cwt](#scipysignalfind_peaks_cwt) | Scipy | Max distance | ✘ | ✘ |
 | [detect_peaks](#detect_peaks-from-marcos-duarte) | Numpy | Minimum distance<br>Minimum height | ✘ | ✔ |
@@ -60,7 +60,7 @@ Easy to make it work, but may miss filtering capacities.
 [Documentation](http://octave.sourceforge.net/signal/function/findpeaks.html).
 [oct2py package](https://github.com/blink1073/oct2py).
 
-Use `findpeaks` from the Octave-Forge signal package through the oct2py bridge.
+Use `findpeaks` from the Octave-Forge signal package through the oct2py bridge. This algorithm allows to make a double sided detection, which means it will detect both local maximam and minima in a single run.
 
 Requires a rather complicated and not very efficient setup to be called from Python code. Of course, you will need an up-to-date distribution of Octave, with the signal package installed from Octave-Forge.
 
