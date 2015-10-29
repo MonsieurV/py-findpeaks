@@ -4,7 +4,7 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 
 | Algorithm | Integration | Filters | MatLab `findpeaks`-like? |
 |-----------| ----------- | ------- | :----------------------: |
-| [scipy.signal.find_peaks_cwt](#scipysignalfind_peaks_cwt) | Included in Scipy | Max distance | ✘ |
+| [scipy.signal.find_peaks_cwt](#scipysignalfind_peaks_cwt) | Included in Scipy | ? | ✘ |
 | [detect_peaks](#detect_peaks-from-marcos-duarte) | Single file source<br>Depends on Numpy | Minimum distance<br>Minimum height<br>Relative threshold | ✔ |
 | [peakutils.peak.indexes](#peakutilspeakindexes) | PyPI package PeakUtils<br> Depends on Scipy | Amplitude threshold<br>Minimum distance | ✔ |
 | [peakdetect](#peakdetect-from-sixtenbe) | Single file source<br>Depends on Scipy | ? | ✘ |
@@ -22,12 +22,25 @@ When you're selecting an algorithm, you might consider:
 
 ## scipy.signal.find_peaks_cwt
 
+![](/images/scipy_find_peaks_cwt.png?raw=true "scipy.signal.find_peaks_cwt")
+
+```python
+import numpy as np
+from vector import vector, plot_peaks
+import scipy.signal
+print('Detect peaks without any filters.')
+indexes = scipy.signal.find_peaks_cwt(vector, np.arange(1, 4),
+    max_distances=np.arange(1, 4)*2)
+indexes = np.array(indexes) - 1
+print('Peaks are: %s' % (indexes))
+```
+
 [Documentation](http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks_cwt.html).
 [Sample code](/tests/scipy_find_peaks_cwt.py).
 
-The peak detection algorithm from the Scipy signal processing package. It appears like the obvious choice when you already work with Scipy.
+The peak detection algorithm from the Scipy signal processing package. It appears like the obvious choice when you already work with Scipy, but may in fact not be as it uses a wavelet convolution approach.
 
-However this algorithm requires to understand wavelets to be well used, as its interface is constructed after the wavelet convolution approach. Its use may be thus judged as less trivial and direct than other algorithms.
+Thus this function requires to understand wavelets to be well used, which is less trivial and direct than other algorithms. However this can a good choice on noisy data.
 
 ## detect_peaks from Marcos Duarte
 
