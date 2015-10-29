@@ -7,7 +7,7 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 | [scipy.signal.find_peaks_cwt](#scipysignalfind_peaks_cwt) | Included in Scipy | ? | ✘ |
 | [detect_peaks](#detect_peaks-from-marcos-duarte) | Single file source<br>Depends on Numpy | Minimum distance<br>Minimum height<br>Relative threshold | ✔ |
 | [peakutils.peak.indexes](#peakutilspeakindexes) | PyPI package PeakUtils<br> Depends on Scipy | Amplitude threshold<br>Minimum distance | ✔ |
-| [peakdetect](#peakdetect-from-sixtenbe) | Single file source<br>Depends on Scipy | ? | ✘ |
+| [peakdetect](#peakdetect-from-sixtenbe) | Single file source<br>Depends on Scipy | Minimum peak distance | ✘ |
 | [Octave-Forge findpeaks](#octave-forge-findpeaks) | Requires an Octave-Forge distribution<br>+ PyPI package oct2py<br>Depends on Scipy | Minimum distance<br>Minimum height<br>Minimum peak width | ✘ |
 
 ## How to make your choice?
