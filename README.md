@@ -141,8 +141,6 @@ Although the function have an interface close to the MatLab `findpeaks`, it is h
 
 # Contribute
 
-If you've have found something else or want to improve this overview, feel free to [open a new ticket](https://github.com/MonsieurV/py-findpeaks/issues/new) or submit a PR.
+Feel free to [open a new ticket](https://github.com/MonsieurV/py-findpeaks/issues/new) or submit a PR to improve this overview.
 
-This has helped you? [Let me know!](mailto:yoan@ytotech.com)
-
-Happy digital processing!
+Happy processing!
