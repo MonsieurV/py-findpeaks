@@ -3,7 +3,7 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 ## Overview
 
 | Algorithm | Integration | Filters | MatLab `findpeaks`-like? |
-|-----------| ---------- | ------- | ------------- | ------------------------ |
+|-----------| ----------- | ------- | :----------------------: |
 | [scipy.signal.find_peaks_cwt](#scipysignalfind_peaks_cwt) | Included in Scipy | Max distance | ✘ |
 | [detect_peaks](#detect_peaks-from-marcos-duarte) | Single file source<br>Depends on Numpy | Minimum distance<br>Minimum height<br>Relative threshold | ✔ |
 | [peakutils.peak.indexes](#peakutilspeakindexes) | PyPI package PeakUtils<br> Depends on Scipy | Amplitude threshold<br>Minimum distance | ✔ |
