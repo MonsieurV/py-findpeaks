@@ -2,13 +2,13 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 
 ## Overview
 
-| Algorithm | Depends on | Filters | Double sided? | MatLab `findpeaks`-like? |
+| Algorithm | Integration | Filters | Double sided? | MatLab `findpeaks`-like? |
 |-----------| ---------- | ------- | ------------- | ------------------------ |
-| [scipy.signal.find_peaks_cwt](#scipysignalfind_peaks_cwt) | Scipy | Max distance | ✘ | ✘ |
-| [detect_peaks](#detect_peaks-from-marcos-duarte) | Numpy | Minimum distance<br>Minimum height | ✘ | ✔ |
-| [peakutils.peak.indexes](#peakutilspeakindexes) | PeakUtils and Scipy | ? | ? | ✘ |
-| [peakdetect](#peakdetect-from-sixtenbe) | Scipy | ? | ? | ✘ |
-| [Octave-Forge findpeaks](#octave-forge-findpeaks) | Octave-Forge, oct2py and Scipy | ? | ? | ✘ |
+| [scipy.signal.find_peaks_cwt](#scipysignalfind_peaks_cwt) | Included in Scipy | Max distance | ✘ | ✘ |
+| [detect_peaks](#detect_peaks-from-marcos-duarte) | Single file source<br>Depends on Numpy | Minimum distance<br>Minimum height<br>Relative threshold | ✘ | ✔ |
+| [peakutils.peak.indexes](#peakutilspeakindexes) | PyPI package PeakUtils<br> Depends on Scipy | Amplitude threshold<br>Minimum distance | ✘ | ✔ |
+| [peakdetect](#peakdetect-from-sixtenbe) | Single file source<br>Depends on Scipy | ? | ? | ✘ |
+| [Octave-Forge findpeaks](#octave-forge-findpeaks) | Requires an Octave-Forge distribution<br>+ PyPI package oct2py<br>Depends on Scipy | Minimum distance<br>Minimum height<br>Minimum peak width | ✔ | ✘ |
 
 ## How to make your choice?
 
@@ -23,6 +23,7 @@ When you're selecting an algorithm, you might consider:
 ## scipy.signal.find_peaks_cwt
 
 [Documentation](http://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks_cwt.html).
+[Sample code](/tests/scipy_find_peaks_cwt.py).
 
 The peak detection algorithm from the Scipy signal processing package. It appears like the obvious choice when you already work with Scipy.
 
@@ -45,9 +46,9 @@ print('Peaks are: %s' % (indexes))
 [Source](/tests/libs/detect_peaks.py).
 [Sample code](/tests/detect_peaks.py).
 
-This algorithm comes from a notebook written by Marcos Duarte.
+This algorithm comes from a notebook written by Marcos Duarte and is pretty trivial to use.
 
-The function has an interface very similar and consistent results to the MatLab Signal Processing Toolbox `findpeaks`, yet with less complete filtering and tuning support. It can been considered trivial to use.
+The function has an interface very similar and consistent results with the MatLab Signal Processing Toolbox `findpeaks`, yet with less complete filtering and tuning support.
 
 ## peakutils.peak.indexes
 
@@ -64,8 +65,9 @@ print('Peaks are: %s' % (indexes))
 
 [Documentation](http://pythonhosted.org/PeakUtils/reference.html#peakutils.peak.indexes).
 [Package](https://bitbucket.org/lucashnegri/peakutils).
+[Sample code](/tests/peakutils_indexes.py).
 
-This algorithm can be used as an equivalent of the MatLab `findpeaks` if you don't need filtering other than minimal distance.
+This algorithm can be used as an equivalent of the MatLab `findpeaks` and will give easily give consistent results if you only need minimal distance and height filtering.
 
 ## peakdetect from sixtenbe
 
@@ -102,6 +104,8 @@ print('Peaks are: %s' % (indexes))
 Use `findpeaks` from the Octave-Forge signal package through the oct2py bridge. This algorithm allows to make a double sided detection, which means it will detect both local maximam and minima in a single run.
 
 Requires a rather complicated and not very efficient setup to be called from Python code. Of course, you will need an up-to-date distribution of Octave, with the signal package installed from Octave-Forge.
+
+Although the function have an interface close to the MatLab `findpeaks`, it is harder to have the exact same results that with [detect_peaks](#detect_peaks-from-marcos-duarte) or [peakutils.peak.indexes](#peakutilspeakindexes).
 
 ----------------------------------
 
