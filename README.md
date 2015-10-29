@@ -62,7 +62,7 @@ Easy to make it work, but may miss filtering capacities.
 
 Use `findpeaks` from the Octave-Forge signal package through the oct2py bridge.
 
-Requires a complicated and not very efficient setup to be called from Python code. Of course, you will need an up-to-date distribution of Octave.
+Requires a rather complicated and not very efficient setup to be called from Python code. Of course, you will need an up-to-date distribution of Octave, with the signal package installed from Octave-Forge.
 
 ----------------------------------
 
