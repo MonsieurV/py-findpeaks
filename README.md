@@ -102,6 +102,7 @@ print('Peaks are: %s' % (indexes))
 ```
 
 [Source and documentation](https://gist.github.com/sixtenbe/1178136).
+[Sample code](/tests/peakdetect.py).
 
 The algorithm was written by sixtenbe based on the previous work of [endolith](https://gist.github.com/endolith/250860) and [Eli Billauer](http://billauer.co.il/peakdet.html).
 
