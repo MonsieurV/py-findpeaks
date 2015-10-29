@@ -89,7 +89,7 @@ def detect_peaks(x, mph=None, mpd=1, threshold=0, edge='rising',
         return np.array([], dtype=int)
     if valley:
         x = -x
-    # find indices of all peaks
+    # find indexes of all peaks
     dx = x[1:] - x[:-1]
     # handle NaN's
     indnan = np.where(np.isnan(x))[0]
@@ -131,7 +131,7 @@ def detect_peaks(x, mph=None, mpd=1, threshold=0, edge='rising',
                 idel = idel | (ind >= ind[i] - mpd) & (ind <= ind[i] + mpd) \
                     & (x[ind[i]] > x[ind] if kpsh else True)
                 idel[i] = 0  # Keep current peak
-        # remove the small peaks and sort back the indices by their occurrence
+        # remove the small peaks and sort back the indexes by their occurrence
         ind = np.sort(ind[~idel])
 
     if show:

@@ -6,7 +6,7 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 |-----------| ---------- | ------- | ------------- | ------------------------ |
 | [scipy.signal.find_peaks_cwt](#scipysignalfind_peaks_cwt) | Scipy | Max distance | ✘ | ✘ |
 | [detect_peaks](#detect_peaks-from-marcos-duarte) | Numpy | Minimum distance<br>Minimum height | ✘ | ✔ |
-| [peakutils.indexes](#peakutilsindexes) | PeakUtils and Scipy | ? | ? | ✘ |
+| [peakutils.peak.indexes](#peakutilspeakindexes) | PeakUtils and Scipy | ? | ? | ✘ |
 | [peakdetect](#peakdetect-from-sixtenbe) | Scipy | ? | ? | ✘ |
 | [Octave-Forge findpeaks](#octave-forge-findpeaks) | Octave-Forge, oct2py and Scipy | ? | ? | ✘ |
 
@@ -32,13 +32,35 @@ However this algorithm requires to understand wavelets to be well used, as its i
 
 ![](/images/detect_peaks.png?raw=true "detect_peaks from Marcos Duarte")
 
+```python
+import numpy as np
+from vector import vector, plot_peaks
+from libs import detect_peaks
+print('Detect peaks without any filters.')
+indexes = detect_peaks.detect_peaks(vector)
+print('Peaks are: %s' % (indexes))
+```
+
 [Documentation](http://nbviewer.ipython.org/github/demotu/BMC/blob/master/notebooks/DetectPeaks.ipynb).
+[Source](/tests/libs/detect_peaks.py).
+[Sample code](/tests/detect_peaks.py).
 
 This algorithm comes from a notebook written by Marcos Duarte.
 
 The function has an interface very similar and consistent results to the MatLab Signal Processing Toolbox `findpeaks`, yet with less complete filtering and tuning support. It can been considered trivial to use.
 
-## peakutils.indexes
+## peakutils.peak.indexes
+
+![](/images/peakutils_indexes.png?raw=true "peakutils.peak.indexes")
+
+```python
+import numpy as np
+from vector import vector, plot_peaks
+import peakutils.peak
+print('Detect peaks without any filters.')
+indexes = peakutils.peak.indexes(np.array(vector), thres=0, min_dist=0)
+print('Peaks are: %s' % (indexes))
+```
 
 [Documentation](http://pythonhosted.org/PeakUtils/reference.html#peakutils.peak.indexes).
 [Package](https://bitbucket.org/lucashnegri/peakutils).
@@ -64,17 +86,18 @@ from oct2py import octave
 # Load the Octage-Forge signal package.
 octave.eval("pkg load signal")
 print('Detect peaks without any filters.')
-(_, indices) = octave.findpeaks(np.array(vector), 'DoubleSided',
+(_, indexes) = octave.findpeaks(np.array(vector), 'DoubleSided',
     'MinPeakHeight', 0, 'MinPeakDistance', 0, 'MinPeakWidth', 0)
 # The results are in a 2D array and in floats: get back to 1D array and convert
-# peak indices to integer. Also this is MatLab-style indexation (one-based),
+# peak indexes to integer. Also this is MatLab-style indexation (one-based),
 # so we must substract one to get back to Python indexation (zero-based).
-indices = indices[0].astype(int) - 1
-print('Peaks are: %s' % (indices))
+indexes = indexes[0].astype(int) - 1
+print('Peaks are: %s' % (indexes))
 ```
 
 [Documentation](http://octave.sourceforge.net/signal/function/findpeaks.html).
 [oct2py package](https://github.com/blink1073/oct2py).
+[Sample code](/tests/octave_findpeaks.py).
 
 Use `findpeaks` from the Octave-Forge signal package through the oct2py bridge. This algorithm allows to make a double sided detection, which means it will detect both local maximam and minima in a single run.
 

@@ -4,7 +4,7 @@ vector = [
     0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8, 13, 8, 10, 3,
     1, 20, 7, 3, 0 ]
 
-def plot_peaks(x, indices, algorithm=None, mph=None, mpd=None):
+def plot_peaks(x, indexes, algorithm=None, mph=None, mpd=None):
     """Plot results of the peak dectection."""
     try:
         import matplotlib.pyplot as plt
@@ -13,11 +13,11 @@ def plot_peaks(x, indices, algorithm=None, mph=None, mpd=None):
         return
     _, ax = plt.subplots(1, 1, figsize=(8, 4))
     ax.plot(x, 'b', lw=1)
-    if indices.size:
+    if indexes.size:
         label = 'peak'
-        label = label + 's' if indices.size > 1 else label
-        ax.plot(indices, x[indices], '+', mfc=None, mec='r', mew=2, ms=8,
-                label='%d %s' % (indices.size, label))
+        label = label + 's' if indexes.size > 1 else label
+        ax.plot(indexes, x[indexes], '+', mfc=None, mec='r', mew=2, ms=8,
+                label='%d %s' % (indexes.size, label))
         ax.legend(loc='best', framealpha=.5, numpoints=1)
     ax.set_xlim(-.02*x.size, x.size*1.02-1)
     ymin, ymax = x[np.isfinite(x)].min(), x[np.isfinite(x)].max()

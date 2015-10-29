@@ -2,16 +2,17 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 from vector import vector, plot_peaks
-from libs import detect_peaks
+import peakutils.peak
 
 print('Detect peaks without any filters.')
-indexes = detect_peaks.detect_peaks(vector)
+indexes = peakutils.peak.indexes(np.array(vector), thres=0, min_dist=0)
 print('Peaks are: %s' % (indexes))
 plot_peaks(np.array(vector), indexes,
-    algorithm='detect_peaks from Marcos Duarte')
+    algorithm='peakutils.peak.indexes')
 
 print('Detect peaks with minimum height and distance filters.')
-indexes = detect_peaks.detect_peaks(vector, mph=7, mpd=2)
+indexes = peakutils.peak.indexes(np.array(vector),
+    thres=7.0/max(vector), min_dist=2)
 print('Peaks are: %s' % (indexes))
 plot_peaks(np.array(vector), indexes, mph=7, mpd=2,
-    algorithm='detect_peaks from Marcos Duarte')
+    algorithm='peakutils.peak.indexes')
