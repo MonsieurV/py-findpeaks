@@ -55,6 +55,8 @@ Easy to make it work, but may miss filtering capacities.
 
 ## Octave-Forge findpeaks
 
+![](/images/octave_findpeaks.png?raw=true "Octave-Forge findpeaks")
+
 [Documentation](http://octave.sourceforge.net/signal/function/findpeaks.html).
 [oct2py package](https://github.com/blink1073/oct2py).
 
