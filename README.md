@@ -92,7 +92,7 @@ print('Peaks are: %s' % (indexes))
 
 The algorithm was written by sixtenbe based on the previous work of [endolith](https://gist.github.com/endolith/250860) and [Eli Billauer](http://billauer.co.il/peakdet.html).
 
-Easy to setup as it comes in a single source Octave-Forge findpeaksOctave-Forge findpeaksOctave-Forge findpeaksOctave-Forge findpeaksOctave-Forge findpeaksOctave-Forge findpeaksOctave-Forge findpeaksOctave-Forge findpeaksfile, but the lookahead parameter make it hard to use on low-sampled signals or short samples. May miss filtering capacities (only minimum peak distance with the delta parameter).
+Easy to setup as it comes in a single source file, but the lookahead parameter make it hard to use on low-sampled signals or short samples. May miss filtering capacities (only minimum peak distance with the delta parameter).
 
 ## Octave-Forge findpeaks
 
