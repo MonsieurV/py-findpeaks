@@ -56,7 +56,7 @@ Easy to make it work, but may miss filtering capacities.
 [Documentation](http://octave.sourceforge.net/signal/function/findpeaks.html).
 [oct2py package](https://github.com/blink1073/oct2py).
 
-Use the Octave-Forge signal package `findpeaks` through the oct2py bridge.
+Use `findpeaks` from the Octave-Forge signal package through the oct2py bridge.
 
 Requires a complicated and not very efficient setup to be called from Python code. Of course, you will need an up-to-date distribution of Octave.
 
