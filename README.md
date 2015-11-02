@@ -1,4 +1,4 @@
-This is an overview of all the ready-to-use algorithms I've found to perform peak detection in Python.
+This is an overview of all the ready-to-use algorithms I've found to perform peak detection in Python. I've also written [a blog post](http://blog.ytotech.com/2015/11/01/findpeaks-in-python/) on the subject.
 
 ## Overview
 
