@@ -9,7 +9,7 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 | [peakutils.peak.indexes](#peakutilspeakindexes) | PyPI package PeakUtils<br> Depends on Scipy | Amplitude threshold<br>Minimum distance | ✔ |
 | [peakdetect](#peakdetect-from-sixtenbe) | Single file source<br>Depends on Scipy | Minimum peak distance | ✘ |
 | [Octave-Forge findpeaks](#octave-forge-findpeaks) | Requires an Octave-Forge distribution<br>+ PyPI package oct2py<br>Depends on Scipy | Minimum distance<br>Minimum height<br>Minimum peak width | ✘ |
-| [Lightweight standalone peaks](#lightweight_standalone_peaks) | Single function<br>Depends on Numpy | Amplitude threshold | ✔ |
+| [Lightweight standalone peaks](#lightweight-standalone-peaks) | Single function<br>Depends on Numpy | Amplitude threshold | ✔ |
 
 ## How to make your choice?
 
