@@ -9,6 +9,7 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 | [peakutils.peak.indexes](#peakutilspeakindexes) | PyPI package PeakUtils<br> Depends on Scipy | Amplitude threshold<br>Minimum distance | ✔ |
 | [peakdetect](#peakdetect-from-sixtenbe) | Single file source<br>Depends on Scipy | Minimum peak distance | ✘ |
 | [Octave-Forge findpeaks](#octave-forge-findpeaks) | Requires an Octave-Forge distribution<br>+ PyPI package oct2py<br>Depends on Scipy | Minimum distance<br>Minimum height<br>Minimum peak width | ✘ |
+| [Lightweight standalone peaks](#lightweight-standalone-peaks) | Single function<br>Depends on Numpy | Amplitude threshold | ✔ |
 
 ## How to make your choice?
 
@@ -138,6 +139,46 @@ Use `findpeaks` from the Octave-Forge signal package through the oct2py bridge. 
 Requires a rather complicated and not very efficient setup to be called from Python code. Of course, you will need an up-to-date distribution of Octave, with the signal package installed from Octave-Forge.
 
 Although the function have an interface close to the MatLab `findpeaks`, it is harder to have the exact same results that with [detect_peaks](#detect_peaks-from-marcos-duarte) or [peakutils.peak.indexes](#peakutilspeakindexes).
+
+## Lightweight standalone peaks
+
+![](/images/lightweight_standalone_peaks.png?raw=true "Lightweight standalone peaks")
+
+```python
+import numpy as np
+from math import sqrt
+
+# threshold used to discard peaks too small
+def detect_peaks(signal, threshold=0.5):
+    # compute root mean square
+    root_mean_square = sqrt(np.sum(np.square(signal) / len(signal)))
+
+    # compute peak to average ratios
+    ratios = np.array([pow(x / root_mean_square, 2) for x in signal])
+
+    # apply first order logic
+    peaks = (ratios > np.roll(ratios, 1)) & (ratios > np.roll(ratios, -1)) & (ratios > threshold)
+
+    # optional: return peak indices
+    peak_indexes = []
+    
+    for i in range(0, len(peaks)):
+        if peaks[i]:
+            peak_indexes.append(i)
+
+    return peak_indexes
+
+# example
+from vector import vector, plot_peaks
+
+indexes = detect_peaks(vector, 1.5)
+print indexes
+plot_peaks(np.array(vector), np.array(indexes), mph=1.5, algorithm='lightweight standalone peaks')
+```
+
+Straightforward, simple and lightweight.
+
+Definitely less complete filtering and tuning support than MatLab Signal Processing Toolbox `findpeaks`.
 
 ----------------------------------
 
