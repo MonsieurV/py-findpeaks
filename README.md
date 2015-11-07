@@ -9,7 +9,7 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 | [peakutils.peak.indexes](#peakutilspeakindexes) | PyPI package PeakUtils<br> Depends on Scipy | Amplitude threshold<br>Minimum distance | ✔ |
 | [peakdetect](#peakdetect-from-sixtenbe) | Single file source<br>Depends on Scipy | Minimum peak distance | ✘ |
 | [Octave-Forge findpeaks](#octave-forge-findpeaks) | Requires an Octave-Forge distribution<br>+ PyPI package oct2py<br>Depends on Scipy | Minimum distance<br>Minimum height<br>Minimum peak width | ✘ |
-| [Lightweight standalone peaks](#lightweight-standalone-peaks) | Single function<br>Depends on Numpy | Amplitude threshold | ✔ |
+| [Lightweight standalone peaks](#lightweight-standalone-peaks) | Single function<br>Depends on Numpy | Amplitude threshold | ✘ |
 
 ## How to make your choice?
 
@@ -146,35 +146,14 @@ Although the function have an interface close to the MatLab `findpeaks`, it is h
 
 ```python
 import numpy as np
-from math import sqrt
-
-# threshold used to discard peaks too small
-def detect_peaks(signal, threshold=0.5):
-    # compute root mean square
-    root_mean_square = sqrt(np.sum(np.square(signal) / len(signal)))
-
-    # compute peak to average ratios
-    ratios = np.array([pow(x / root_mean_square, 2) for x in signal])
-
-    # apply first order logic
-    peaks = (ratios > np.roll(ratios, 1)) & (ratios > np.roll(ratios, -1)) & (ratios > threshold)
-
-    # optional: return peak indices
-    peak_indexes = []
-    
-    for i in range(0, len(peaks)):
-        if peaks[i]:
-            peak_indexes.append(i)
-
-    return peak_indexes
-
-# example
 from vector import vector, plot_peaks
-
+from math import sqrt
+print('Detect peaks with height threshold.')
 indexes = detect_peaks(vector, 1.5)
-print indexes
-plot_peaks(np.array(vector), np.array(indexes), mph=1.5, algorithm='lightweight standalone peaks')
+print('Peaks are: %s' % (indexes))
 ```
+
+[Source and documentation](/tests/lightweight_standalone_peaks.py#L7).
 
 Straightforward, simple and lightweight.
 
