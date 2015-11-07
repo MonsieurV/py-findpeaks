@@ -1,3 +1,5 @@
+__author__ = 'Tony Beltramelli - 07/11/2015'
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # only dependencies required
@@ -29,4 +31,4 @@ from vector import vector, plot_peaks
 
 indexes = detect_peaks(vector, 1.5)
 print indexes
-plot_peaks(np.array(vector), np.array(indexes), mph=1.5, algorithm='standalone approach')
+plot_peaks(np.array(vector), np.array(indexes), mph=1.5, algorithm='lightweight standalone peaks')
