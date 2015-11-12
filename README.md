@@ -9,6 +9,7 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 | [peakutils.peak.indexes](#peakutilspeakindexes) | PyPI package PeakUtils<br> Depends on Scipy | Amplitude threshold<br>Minimum distance | ✔ |
 | [peakdetect](#peakdetect-from-sixtenbe) | Single file source<br>Depends on Scipy | Minimum peak distance | ✘ |
 | [Octave-Forge findpeaks](#octave-forge-findpeaks) | Requires an Octave-Forge distribution<br>+ PyPI package oct2py<br>Depends on Scipy | Minimum distance<br>Minimum height<br>Minimum peak width | ✘ |
+| [Janko Slavic findpeaks](#Janko-Slavic-Findpeaks) | Single function<br>Depends on Numpy | Minimum distance<br>Minimum height | ✘ |
 | [Lightweight standalone peaks](#lightweight-standalone-peaks) | Single function<br>Depends on Numpy | Amplitude threshold | ✘ |
 
 ## How to make your choice?
@@ -140,6 +141,26 @@ Requires a rather complicated and not very efficient setup to be called from Pyt
 
 Although the function have an interface close to the MatLab `findpeaks`, it is harder to have the exact same results that with [detect_peaks](#detect_peaks-from-marcos-duarte) or [peakutils.peak.indexes](#peakutilspeakindexes).
 
+## Janko Slavic findpeaks
+
+![](/images/janko_slavic_findpeaks.png?raw=true "Janko Slavic findpeaks")
+
+```python
+import numpy as np
+from vector import vector, plot_peaks
+from libs.findpeaks import findpeaks
+indexes = findpeaks(np.array(vector), spacing=, limit=7)
+print('Peaks are: %s' % (indexes))
+```
+
+[Documentation](https://github.com/jankoslavic/py-tools/blob/master/findpeaks/Findpeaks%20example.ipynb).
+[Source](https://github.com/jankoslavic/py-tools/blob/master/findpeaks/findpeaks.py).
+[Sample code](/tests/janko_slavic_findpeaks.py).
+
+Small and fast peak detection algorithm, with minimum distance and height filtering support. Comes as a single function depending only on Numpy.
+
+The minimum distance filter miss fine granularity tuning (you may filter too many or too few peaks).
+
 ## Lightweight standalone peaks
 
 ![](/images/lightweight_standalone_peaks.png?raw=true "Lightweight standalone peaks")
@@ -155,9 +176,10 @@ print('Peaks are: %s' % (indexes))
 
 [Source and documentation](/tests/lightweight_standalone_peaks.py#L7).
 
-Straightforward, simple and lightweight.
+Straightforward, simple and lightweight peak detection algorithm.
 
-Definitely less complete filtering and tuning support than MatLab Signal Processing Toolbox `findpeaks`.
+Miss minimum peak height filtering.
+
 
 ----------------------------------
 
