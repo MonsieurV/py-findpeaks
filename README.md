@@ -163,7 +163,7 @@ The minimum distance filter miss fine granularity tuning (you may filter too man
 
 ## Tony Beltramelli detect_peaks
 
-![](/images/tony_beltramelli_detect_peaktony_beltramelli_detect_peaks.png?raw=true "Lightweight standalone peaks")
+![](/images/tony_beltramelli_detect_peaks.png?raw=true "Lightweight standalone peaks")
 
 ```python
 import numpy as np
@@ -174,12 +174,12 @@ indexes = detect_peaks(vector, 1.5)
 print('Peaks are: %s' % (indexes))
 ```
 
-[Source and documentation](/libs/tony_beltramelli_detect_peaks.py).
+[Source and documentation](/tests/libs/tony_beltramelli_detect_peaks.py).
 [Sample code](/tests/tony_beltramelli_detect_peaks.py).
 
 Straightforward, simple and lightweight peak detection algorithm, with minimum distance filtering support.
 
-NoMissMissMissMissMissMissMissMissMissMiss minimum peak height filtering support.
+No minimum peak height filtering support.
 
 
 ----------------------------------
