@@ -20,12 +20,3 @@ def detect_peaks(signal, threshold=0.5):
 		if peaks[i]:
 			peak_indexes.append(i)
 	return peak_indexes
-
-# example
-from vector import vector, plot_peaks
-
-print('Detect peaks with height threshold.')
-indexes = detect_peaks(vector, 1.5)
-print('Peaks are: %s' % (indexes))
-plot_peaks(np.array(vector), np.array(indexes), mph=1.5,
-	algorithm='lightweight standalone peaks')

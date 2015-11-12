@@ -10,7 +10,7 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 | [peakdetect](#peakdetect-from-sixtenbe) | Single file source<br>Depends on Scipy | Minimum peak distance | ✘ |
 | [Octave-Forge findpeaks](#octave-forge-findpeaks) | Requires an Octave-Forge distribution<br>+ PyPI package oct2py<br>Depends on Scipy | Minimum distance<br>Minimum height<br>Minimum peak width | ✘ |
 | [Janko Slavic findpeaks](#janko-slavic-findpeaks) | Single function<br>Depends on Numpy | Minimum distance<br>Minimum height | ✘ |
-| [Lightweight standalone peaks](#lightweight-standalone-peaks) | Single function<br>Depends on Numpy | Amplitude threshold | ✘ |
+| [Tony Beltramelli detect_peaks](#tony-beltramelli-detect_peaks) | Single function<br>Depends on Numpy | Amplitude threshold | ✘ |
 
 ## How to make your choice?
 
@@ -161,24 +161,25 @@ Small and fast peak detection algorithm, with minimum distance and height filter
 
 The minimum distance filter miss fine granularity tuning (you may filter too many or too few peaks).
 
-## Lightweight standalone peaks
+## Tony Beltramelli detect_peaks
 
-![](/images/lightweight_standalone_peaks.png?raw=true "Lightweight standalone peaks")
+![](/images/tony_beltramelli_detect_peaktony_beltramelli_detect_peaks.png?raw=true "Lightweight standalone peaks")
 
 ```python
 import numpy as np
 from vector import vector, plot_peaks
-from math import sqrt
+from libs.tony_beltramelli_detect_peaks import detect_peaks
 print('Detect peaks with height threshold.')
 indexes = detect_peaks(vector, 1.5)
 print('Peaks are: %s' % (indexes))
 ```
 
-[Source and documentation](/tests/lightweight_standalone_peaks.py#L7).
+[Source and documentation](/libs/tony_beltramelli_detect_peaks.py).
+[Sample code](/tests/tony_beltramelli_detect_peaks.py).
 
-Straightforward, simple and lightweight peak detection algorithm.
+Straightforward, simple and lightweight peak detection algorithm, with minimum distance filtering support.
 
-Miss minimum peak height filtering.
+NoMissMissMissMissMissMissMissMissMissMiss minimum peak height filtering support.
 
 
 ----------------------------------
