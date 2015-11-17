@@ -6,23 +6,28 @@
 
 import numpy as np
 
-def findpeaks(data, spacing=10, limit=None):
+
+def findpeaks(data, spacing=1, limit=None):
     """Finds peaks in `data` which are of `spacing` width and >=`limit`.
     :param data: values
-    :param spacing: minimum width for single peak
+    :param spacing: minimum spacing to the next peak (should be 1 or more)
     :param limit: peaks should have value greater or equal
     :return:
     """
-    x = np.zeros(len(data)+2*spacing)
-    x[:spacing] = data[0]
-    x[-spacing:] = data[-1]
-    x[spacing:-spacing] = data
-    peak_candidate = np.zeros(x.size - 2*spacing - 2)
+    len = data.size
+    x = np.zeros(len+2*spacing)
+    x[:spacing] = data[0]-1.e-6
+    x[-spacing:] = data[-1]-1.e-6
+    x[spacing:spacing+len] = data
+    peak_candidate = np.zeros(len)
     peak_candidate[:] = True
     for s in range(spacing):
-        h_b = x[s:-2 * spacing + s - 2]  # before
-        h_c = x[spacing: -spacing - 2]  # central
-        h_a = x[spacing + s + 1: -spacing + s - 1]  # after
+        start = spacing - s - 1
+        h_b = x[start : start + len]  # before
+        start = spacing
+        h_c = x[start : start + len]  # central
+        start = spacing + s + 1
+        h_a = x[start : start + len]  # after
         peak_candidate = np.logical_and(peak_candidate, np.logical_and(h_c > h_b, h_c > h_a))
 
     ind = np.argwhere(peak_candidate)
@@ -35,8 +40,10 @@ def findpeaks(data, spacing=10, limit=None):
 if __name__ == '__main__':
     import matplotlib.pyplot as plt
 
-    n = 1000
+    n = 80
     m = 20
+    limit = 0
+    spacing = 3
     t = np.linspace(0., 1, n)
     x = np.zeros(n)
     np.random.seed(0)
@@ -44,9 +51,9 @@ if __name__ == '__main__':
     for i in range(m):
         x += np.sin(phase[i] + 2 * np.pi * t * i)
 
-    peaks = findpeaks(x, spacing=100, limit=4.)
+    peaks = findpeaks(x, spacing=spacing, limit=limit)
     plt.plot(t, x)
-    plt.axhline(4, color='r')
+    plt.axhline(limit, color='r')
     plt.plot(t[peaks], x[peaks], 'ro')
-    plt.title('Peaks: minimum value 4., minimum width 100 points')
+    plt.title('Peaks: minimum value {limit}, minimum spacing {spacing} points'.format(**{'limit': limit, 'spacing': spacing}))
     plt.show()
