@@ -159,7 +159,7 @@ print('Peaks are: %s' % (indexes))
 
 Small and fast peak detection algorithm, with minimum distance and height filtering support. Comes as an handy single function, depending only on Numpy.
 
-The minimum distance filter may miss fine granularity tuning if you work on very low sampled signal. Note that contrary to the MatLab `findpeaks`-like distance filters, the Janko Slavic `findpeaks` `spacing` param requires that all points within the specified width to be lower than the peak.
+Contrary to the MatLab `findpeaks`-like distance filters, the Janko Slavic `findpeaks` `spacing` param requires that all points within the specified width to be lower than the peak. If you work on very low sampled signal the minimum distance filter may miss fine granularity tuning .
 
 ## Tony Beltramelli detect_peaks
 
