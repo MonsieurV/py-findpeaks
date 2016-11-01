@@ -28,7 +28,9 @@ When you're selecting an algorithm, you might consider:
 
 ```python
 import numpy as np
-from vector import vector, plot_peaks
+vector = [
+    0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8, 13, 8, 10, 3,
+    1, 20, 7, 3, 0 ]
 import scipy.signal
 print('Detect peaks without any filters.')
 indexes = scipy.signal.find_peaks_cwt(vector, np.arange(1, 4),
@@ -50,7 +52,9 @@ Thus this function requires to understand wavelets to be well used, which is les
 
 ```python
 import numpy as np
-from vector import vector, plot_peaks
+vector = [
+    0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8, 13, 8, 10, 3,
+    1, 20, 7, 3, 0 ]
 from libs import detect_peaks
 print('Detect peaks with minimum height and distance filters.')
 indexes = detect_peaks.detect_peaks(vector, mph=7, mpd=2)
@@ -71,7 +75,9 @@ The function has an interface very similar and consistent results with the MatLa
 
 ```python
 import numpy as np
-from vector import vector, plot_peaks
+vector = [
+    0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8, 13, 8, 10, 3,
+    1, 20, 7, 3, 0 ]
 import peakutils.peak
 print('Detect peaks with minimum height and distance filters.')
 indexes = peakutils.peak.indexes(np.array(vector),
@@ -91,7 +97,9 @@ This algorithm can be used as an equivalent of the MatLab `findpeaks` and will g
 
 ```python
 import numpy as np
-from vector import vector, plot_peaks
+vector = [
+    0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8, 13, 8, 10, 3,
+    1, 20, 7, 3, 0 ]
 from libs import peakdetect
 print('Detect peaks with distance filters.')
 peaks = peakdetect.peakdetect(np.array(vector), lookahead=2, delta=2)
@@ -117,7 +125,9 @@ Easy to setup as it comes in a single source file, but the lookahead parameter m
 
 ```python
 import numpy as np
-from vector import vector, plot_peaks
+vector = [
+    0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8, 13, 8, 10, 3,
+    1, 20, 7, 3, 0 ]
 from oct2py import octave
 # Load the Octage-Forge signal package.
 octave.eval("pkg load signal")
@@ -147,7 +157,9 @@ Although the function have an interface close to the MatLab `findpeaks`, it is h
 
 ```python
 import numpy as np
-from vector import vector, plot_peaks
+vector = [
+    0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8, 13, 8, 10, 3,
+    1, 20, 7, 3, 0 ]
 from libs.findpeaks import findpeaks
 indexes = findpeaks(np.array(vector), spacing=, limit=7)
 print('Peaks are: %s' % (indexes))
@@ -167,7 +179,9 @@ Contrary to the MatLab `findpeaks`-like distance filters, the Janko Slavic `find
 
 ```python
 import numpy as np
-from vector import vector, plot_peaks
+vector = [
+    0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8, 13, 8, 10, 3,
+    1, 20, 7, 3, 0 ]
 from libs.tony_beltramelli_detect_peaks import detect_peaks
 print('Detect peaks with height threshold.')
 indexes = detect_peaks(vector, 1.5)
