@@ -23,8 +23,7 @@ When you're selecting an algorithm, you might consider:
 
 --------------------------------
 
-
-## scipy.signal.find_peaks_cwt
+## scipy.signal.find_peaks_cwt
 
 ![](/images/scipy_find_peaks_cwt.png?raw=true "scipy.signal.find_peaks_cwt")
 
@@ -49,7 +48,7 @@ Its name appears to make it an obvious choice (when you already work with Scipy)
 
 This function requires to understand wavelets to be properly used. This is less trivial and direct than other algorithms. However the wavelet approach can make it a good choice on noisy data.
 
-## scipy.signal.argrelextrema
+## scipy.signal.argrelextrema
 
 ![](/images/scipy_argrelextrema.png?raw=true "scipy.signal.argrelextrema")
 
