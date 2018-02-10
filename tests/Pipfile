@@ -1,0 +1,16 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+"oct2py" = "==3.1.0"
+peakutils = "*"
+matplotlib = "*"
+
+
+[dev-packages]
+
