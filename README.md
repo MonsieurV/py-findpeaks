@@ -22,6 +22,7 @@ When you're selecting an algorithm, you might consider:
 
 --------------------------------
 
+
 ## scipy.signal.find_peaks_cwt
 
 ![](/images/scipy_find_peaks_cwt.png?raw=true "scipy.signal.find_peaks_cwt")
