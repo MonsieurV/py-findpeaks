@@ -199,6 +199,45 @@ No minimum peak height filtering support.
 
 ----------------------------------
 
+# How to run the examples?
+
+## Install Numpy, Scipy and Matplotlib
+
+You need to have Numpy, Scipy and Matplotlib installed - possibly the latest versions.
+
+To install - and update - them for Python 3:
+
+```sh
+pip3 install -U numpy scipy matplotlib
+```
+
+(you may need to run the command using `sudo` for a system-wide install)
+
+## Install test sample dependencies
+
+Some examples rely on other packages - like [PeakUtils](https://pypi.python.org/pypi/PeakUtils).
+Install them using Pipenv to run all sample codes:
+
+```sh
+# Go in tests directory.
+cd tests/
+# Install dependencies in a virtualenv using Pipenv.
+# We install also Matplotlib so we can access it in the virtualenv.
+# If you do not want that, you can do a system-wide install using:
+# pip install -r requirements.txt
+pipenv install
+```
+
+## Run an example
+
+You can them run any example to see the results.
+
+For e.g. for testing PeakUtils:
+
+```sh
+pipenv run python3 peakutils_indexes.py
+```
+
 # Contribute
 
 Feel free to [open a new ticket](https://github.com/MonsieurV/py-findpeaks/issues/new) or submit a PR to improve this overview.
