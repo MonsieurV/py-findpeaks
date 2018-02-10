@@ -13,8 +13,11 @@ for posOrNegPeaks in peaks:
     for peak in posOrNegPeaks:
         indexes.append(peak[0])
 print('Peaks are: %s' % (indexes))
-plot_peaks(np.array(vector), np.array(indexes),
-    algorithm='peakdetect from sixtenbe')
+plot_peaks(
+    np.array(vector),
+    np.array(indexes),
+    algorithm='peakdetect from sixtenbe'
+)
 
 print('Detect peaks with distance filters.')
 peaks = peakdetect.peakdetect(np.array(vector), lookahead=2, delta=2)
@@ -25,5 +28,8 @@ for posOrNegPeaks in peaks:
     for peak in posOrNegPeaks:
         indexes.append(peak[0])
 print('Peaks are: %s' % (indexes))
-plot_peaks(np.array(vector), np.array(indexes), mph=None, mpd=2,
-    algorithm='peakdetect from sixtenbe')
+plot_peaks(
+    np.array(vector),
+    np.array(indexes),
+    mph=None, mpd=2, algorithm='peakdetect from sixtenbe'
+)
