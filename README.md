@@ -227,6 +227,19 @@ Straightforward, simple and lightweight peak detection algorithm, with minimum d
 
 No minimum peak height filtering support.
 
+----------------------------------
+
+# How to find both lows and highs?
+
+Most algorithms detect only local _maximas_. You may want to detect both _minimas_ and _maximas_.
+
+One solution is to invert the signal before feeding it to the algorithm for detecting lows, as suggested by [@raoofhujairi](https://github.com/MonsieurV/py-findpeaks/issues/3).
+
+With two runs, you can then get both lows and highs:
+
+![](/images/highs_and_lows_peakutils_indexes.png?raw=true "High and low peaks with PeakUtils Indexes")
+
+See the related [sample code](/tests/lows_and_highs.py) using PeakUtils.
 
 ----------------------------------
 
