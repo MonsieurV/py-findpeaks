@@ -87,7 +87,7 @@ See also related functions [argrelmin](https://docs.scipy.org/doc/scipy/referenc
 ```python
 import numpy as np
 import scipy.signal
-vector = np.array([0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8, 
+vector = np.array([0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8,
                    13, 8, 10, 3, 1, 20, 7, 3, 0])
 print('Detect peaks with minimum height and distance filters.')
 indexes, _ = scipy.signal.find_peaks(vector, height=7, distance=2.1)
@@ -95,8 +95,9 @@ print('Peaks are: %s' % (indexes))
 ```
 
 [Documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html).
+[Sample code](/tests/scipy_signal_find_peaks.py).
 
-This function was added to SciPy in version 1.1.0 and is comparable to `findpeaks` provided in Matlab's Signal Processing Toolbox. 
+This function was added to SciPy in version 1.1.0 and is comparable to `findpeaks` provided in Matlab's Signal Processing Toolbox.
 
 `scipy.signal.find_peaks` searches for peaks (local maxima) based on simple value comparison of neighbouring samples and returns those peaks whose properties match optionally specified conditions (minimum and / or maximum) for their height, prominence, width, threshold and distance to each other.
 
