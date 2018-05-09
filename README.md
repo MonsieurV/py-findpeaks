@@ -6,6 +6,7 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 |-----------| ----------- | ------- | :----------------------: |
 | [scipy.signal.find_peaks_cwt](#scipysignalfind_peaks_cwt) | Included in Scipy | ? | ✘ |
 | [scipy.signal.argrelextrema](#scipysignalargrelextrema) | Included in Scipy 0.11+ | Minimum distance | ✘ |
+| [scipy.signal.find_peaks](#scipysignalfind_peaks) | Included in Scipy 1.1+ | Amplitude<br>Threshold<br>Distance<br>Prominence<br>Width | ✔ |
 | [detect_peaks](#detect_peaks-from-marcos-duarte) | Single file source<br>Depends on Numpy | Minimum distance<br>Minimum height<br>Relative threshold | ✔ |
 | [peakutils.peak.indexes](#peakutilspeakindexes) | PyPI package PeakUtils<br> Depends on Scipy | Amplitude threshold<br>Minimum distance | ✔ |
 | [peakdetect](#peakdetect-from-sixtenbe) | Single file source<br>Depends on Scipy | Minimum distance | ✘ |
@@ -77,6 +78,28 @@ The filtering behavior is customizable through the `comparator` parameter, which
 can make it a good choice for building your own filtering algorithm over it.
 
 See also related functions [argrelmin](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.argrelmin.html) and [argrelmax](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.argrelmax.html).
+
+
+## scipy.signal.find_peaks
+
+![](/images/scipy_find_peaks.png?raw=true "scipy.signal.find_peaks")
+
+```python
+import numpy as np
+import scipy.signal
+vector = np.array([0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8, 
+                   13, 8, 10, 3, 1, 20, 7, 3, 0])
+print('Detect peaks with minimum height and distance filters.')
+indexes, _ = scipy.signal.find_peaks(vector, height=7, distance=2.1)
+print('Peaks are: %s' % (indexes))
+```
+
+[Documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.find_peaks.html).
+
+This function was added to SciPy in version 1.1.0 and is comparable to `findpeaks` provided in Matlab's Signal Processing Toolbox. 
+
+`scipy.signal.find_peaks` searches for peaks (local maxima) based on simple value comparison of neighbouring samples and returns those peaks whose properties match optionally specified conditions (minimum and / or maximum) for their height, prominence, width, threshold and distance to each other.
+
 
 ## detect_peaks from Marcos Duarte
 
