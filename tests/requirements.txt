@@ -1,2 +1,0 @@
-oct2py==3.1.0
-PeakUtils==1.1.0

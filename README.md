@@ -291,9 +291,7 @@ Install them using Pipenv to run all sample codes:
 cd tests/
 # Install dependencies in a virtualenv using Pipenv.
 # We install also Matplotlib so we can access it in the virtualenv.
-# If you do not want that, you can do a system-wide install using:
-# pip install -r requirements.txt
-pipenv install
+pipenv install --skip-lock
 ```
 
 ## Run an example
