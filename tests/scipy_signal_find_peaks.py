@@ -16,11 +16,11 @@ plot_peaks(
 print('Detect peaks with minimum height and distance filters.')
 indexes, _ = scipy.signal.find_peaks(
     np.array(vector),
-    height=7, distance=2
+    height=7, distance=2.1
 )
 print('Peaks are: {}'.format(indexes))
 plot_peaks(
     np.array(vector),
     indexes,
-    mph=7, mpd=2, algorithm='scipy.signal.find_peaks'
+    mph=7, mpd=2.1, algorithm='scipy.signal.find_peaks'
 )
