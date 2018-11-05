@@ -13,6 +13,8 @@ This is an overview of all the ready-to-use algorithms I've found to perform pea
 | [Octave-Forge findpeaks](#octave-forge-findpeaks) | Requires an Octave-Forge distribution<br>+ PyPI package oct2py<br>Depends on Scipy | Minimum distance<br>Minimum height<br>Minimum peak width | ✘ |
 | [Janko Slavic findpeaks](#janko-slavic-findpeaks) | Single function<br>Depends on Numpy | Minimum distance<br>Minimum height | ✘ |
 | [Tony Beltramelli detect_peaks](#tony-beltramelli-detect_peaks) | Single function<br>Depends on Numpy | Amplitude threshold | ✘ |
+| [mlpy.findpeaks_dist](#mlpyfindpeaks_dist) | Included in mlpy<br>Depends on Scipy and GSL | Minimum distance | ✘ |
+| [mlpy.findpeaks_win](#mlpyfindpeaks_win) | Single function<br>Depends on Scipy and GSL | Sliding window width | ✘ |
 
 ## How to make your choice?
 
@@ -250,6 +252,44 @@ print('Peaks are: %s' % (indexes))
 Straightforward, simple and lightweight peak detection algorithm, with minimum distance filtering support.
 
 No minimum peak height filtering support.
+
+## mlpy.findpeaks_dist
+
+![](/images/mlpy_findpeaks_dist.png?raw=true "mlpy.findpeaks_dist")
+
+```python
+import numpy as np
+import scipy.signal
+vector = [0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8,
+                   13, 8, 10, 3, 1, 20, 7, 3, 0]
+print('Detect peaks with minimum distance filter.')
+indexes = mlpy.findpeaks_dist(vector, mindist=2.1)
+print('Peaks are: %s' % (indexes))
+```
+
+[Documentation](http://mlpy.sourceforge.net/docs/3.5/findpeaks.html#mlpy.findpeaks_dist).
+[Sample code](/tests/mlpy_findpeaks_dist.py).
+
+Find peaks, with a minimum distance filter between peaks. Code written by Davide Albanese.
+
+## mlpy.findpeaks_win
+
+![](/images/mlpy_findpeaks_win.png?raw=true "mlpy.findpeaks_win")
+
+```python
+import numpy as np
+import scipy.signal
+vector = [0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8,
+                   13, 8, 10, 3, 1, 20, 7, 3, 0]
+print('Detect peaks with sliding window of 5.')
+indexes = mlpy.findpeaks_win(vector, span=5)
+print('Peaks are: %s' % (indexes))
+```
+
+[Documentation](http://mlpy.sourceforge.net/docs/3.5/findpeaks.html#mlpy.findpeaks_win).
+[Sample code](/tests/mlpy_findpeaks_win.py).
+
+Find peaks, with a sliding window of specified width. Code written by Davide Albanese.
 
 ----------------------------------
 

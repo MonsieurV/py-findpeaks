@@ -57,3 +57,5 @@ docs/_build/
 target/
 
 venv/
+
+tests/mlpy-code
