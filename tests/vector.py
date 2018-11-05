@@ -16,8 +16,8 @@ def plot_peaks(x, indexes, algorithm=None, mph=None, mpd=None):
     """Plot results of the peak dectection."""
     try:
         import matplotlib.pyplot as plt
-    except ImportError:
-        print('matplotlib is not available.')
+    except ImportError as e:
+        print('matplotlib is not available.', e)
         return
     _, ax = plt.subplots(1, 1, figsize=(8, 4))
     ax.plot(x, 'b', lw=1)
