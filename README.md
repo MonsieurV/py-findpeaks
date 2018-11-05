@@ -291,7 +291,7 @@ Install them using Pipenv to run all sample codes:
 cd tests/
 # Install dependencies in a virtualenv using Pipenv.
 # We install also Matplotlib so we can access it in the virtualenv.
-pipenv install --skip-lock
+pipenv --site-packages install --skip-lock
 ```
 
 ## Run an example
