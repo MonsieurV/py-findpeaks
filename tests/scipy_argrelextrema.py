@@ -10,6 +10,8 @@ indexes = scipy.signal.argrelextrema(
     comparator=np.greater
 )
 print('Peaks are: %s' % (indexes[0]))
+# To get number of peaks:
+# print("{} peaks".format(len(indexes[0])))
 plot_peaks(
     np.array(vector),
     indexes[0],
