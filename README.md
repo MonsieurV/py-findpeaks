@@ -103,6 +103,8 @@ This function was added to SciPy in version 1.1.0 and is comparable to `findpeak
 
 `scipy.signal.find_peaks` searches for peaks (local maxima) based on simple value comparison of neighbouring samples and returns those peaks whose properties match optionally specified conditions (minimum and / or maximum) for their height, prominence, width, threshold and distance to each other.
 
+On the prominence parameter, see [this explanation](https://stackoverflow.com/a/52612432).
+
 
 ## detect_peaks from Marcos Duarte
 
