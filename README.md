@@ -145,7 +145,7 @@ indexes = peakutils.peak.indexes(np.array(vector),
 print('Peaks are: %s' % (indexes))
 ```
 
-[Documentation](http://pythonhosted.org/PeakUtils/reference.html#peakutils.peak.indexes).
+[Documentation](https://peakutils.readthedocs.io/en/latest/).
 [Package](https://bitbucket.org/lucashnegri/peakutils).
 [Sample code](/tests/peakutils_indexes.py).
 
