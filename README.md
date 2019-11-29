@@ -221,7 +221,7 @@ vector = [
     0, 6, 25, 20, 15, 8, 15, 6, 0, 6, 0, -5, -15, -3, 4, 10, 8, 13, 8, 10, 3,
     1, 20, 7, 3, 0 ]
 from libs.findpeaks import findpeaks
-indexes = findpeaks(np.array(vector), spacing=, limit=7)
+indexes = findpeaks(np.array(vector), spacing=2, limit=7)
 print('Peaks are: %s' % (indexes))
 ```
 
